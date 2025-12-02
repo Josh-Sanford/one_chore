@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:one_chore/core/theme/app_theme.dart';
 import 'package:one_chore/l10n/l10n.dart';
 
 class App extends StatelessWidget {
@@ -7,17 +8,8 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF2C5F8D), // Semi-dark blue
-        ),
-      ),
-      darkTheme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF2C5F8D), // Semi-dark blue
-          brightness: Brightness.dark,
-        ),
-      ),
+      theme: AppTheme.light,
+      darkTheme: AppTheme.dark,
       themeMode: ThemeMode.dark,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
