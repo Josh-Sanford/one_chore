@@ -1,0 +1,31 @@
+name: one_chore
+description: A productivity app that helps users accomplish one task per day
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ^3.9.0
+  flutter: ^3.35.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  flutter_riverpod: ^2.6.1
+  intl: ^0.20.2
+  riverpod_annotation: ^2.6.1
+
+dev_dependencies:
+  build_runner: ^2.4.14
+  custom_lint: ^0.7.0
+  flutter_test:
+    sdk: flutter
+  mocktail: ^1.0.4
+  riverpod_generator: ^2.6.4
+  riverpod_lint: ^2.6.3
+  very_good_analysis: ^10.0.0
+
+flutter:
+  generate: true
+  uses-material-design: true
