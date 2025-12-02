@@ -8,7 +8,7 @@ void main() {
   group('App', () {
     testWidgets('renders without crashing', (tester) async {
       await tester.pumpWidget(App());
-      expect(find.text('OneChore Theme Demo'), findsOneWidget);
+      expect(find.text('OneChore - Coming Soon'), findsOneWidget);
     });
   });
 }
