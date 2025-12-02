@@ -251,7 +251,7 @@ abstract class SettingsRepository {
 - Schedule notification for specified time each day
 - Generate random message based on category distribution
 - Include chore title in notification if chore selected
-- Handle timezone changes
+- Handle time zone changes
 - Handle app updates (reschedule notifications)
 - Request permissions on first use
 

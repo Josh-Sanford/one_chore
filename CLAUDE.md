@@ -37,7 +37,7 @@ OneChore is a productivity app that helps users accomplish one task per day by l
 - Implementation first, then write tests development with 100% coverage (required)
 - Smooth, delightful animations and interactions
 - Excellent UX with clear feedback and error handling
-- Follow VGV best practices and architecture patterns combined with Andrea Bizzoto (from codewithandrea.com) best practices and riverpod architecture patterns
+- Follow VGV best practices and architecture patterns combined with Andrea Bizzotto (from codewithandrea.com) best practices and riverpod architecture patterns
 - Write clean, maintainable, well-documented code
 
 **Development Approach:**
