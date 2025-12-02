@@ -356,7 +356,7 @@ lib/
 **3. State Management:**
 - `dailyChoreRepositoryProvider`
 - `todaysDailyChoreProvider` - Stream of today's DailyChore
-- `todaysChorProvider` - Combines DailyChore + actual Chore data
+- `todaysChoreProvider` - Combines DailyChore + actual Chore data
 - `dailyChoreControllerProvider` - select/complete/change actions
 - `randomChorePickerProvider` - Random selection logic
 - Write provider tests
@@ -619,7 +619,7 @@ lib/
 - Schedule recurring daily notification
 - Generate random message based on settings
 - Include today's chore title if available
-- Handle timezone changes
+- Handle time zone changes
 - Handle app updates (reschedule)
 - Handle notification tap (deep link to home)
 
@@ -705,8 +705,8 @@ lib/
 **4. Edge Cases:**
 - No chores in list
 - No internet connection (not applicable, fully offline)
-- App backgrounded/foregrounded
-- Timezone changes
+- App sent to background/brought to foreground
+- Time zone changes
 - Date changes (midnight)
 - Notification permissions denied
 - Very long chore titles/descriptions

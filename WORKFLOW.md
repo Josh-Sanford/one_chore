@@ -194,15 +194,42 @@ git push -u origin phase-X-description
 
 ### 5. Create Pull Request
 
-**PR Title Format:**
+**PR Title Format (Semantic Pull Request):**
+
+PR titles MUST follow the [Conventional Commits](https://www.conventionalcommits.org/) specification for CI to pass:
+
 ```
-[Phase X] Feature description
+<type>: <description>
 ```
 
+or with optional scope:
+
+```
+<type>(scope): <description>
+```
+
+**Types:**
+- `feat:` - New feature
+- `fix:` - Bug fix
+- `test:` - Adding tests
+- `refactor:` - Code refactoring
+- `docs:` - Documentation changes
+- `style:` - Code formatting
+- `chore:` - Maintenance tasks
+- `perf:` - Performance improvements
+
 **Examples:**
-- `[Phase 2] Add Chore model with freezed`
-- `[Phase 2] Implement ChoresRepository with Isar`
-- `[Phase 2] Build ChoreListScreen UI`
+- `feat: add Chore model with freezed`
+- `feat(chore-list): implement ChoresRepository with Hive`
+- `feat(daily-chore): build ChoreListScreen UI`
+- `fix(notifications): handle null case in reminder settings`
+- `test(chore-list): add repository unit tests`
+- `chore: update dependencies to latest versions`
+
+**Phase-Specific PRs:**
+You can optionally include the phase in the description:
+- `feat: add Chore model with freezed (Phase 2)`
+- `chore: add project dependencies (Phase 0)`
 
 **PR Description Template:**
 ```markdown
@@ -363,6 +390,7 @@ DO NOT merge - just create the PR for review.
 - Long-lived feature branches (> 2 days)
 - Committing without tests
 - Vague commit messages ("fix stuff", "updates")
+- Non-semantic PR titles (use `feat:`, `fix:`, etc. - required for CI)
 - Committing directly to `main` (always use PR)
 - Creating long-lived branches like `develop` (trunk-based = `main` only)
 - Leaving branches open for weeks
@@ -370,13 +398,24 @@ DO NOT merge - just create the PR for review.
 - Merging without tests passing
 - Breaking `main` (it must always be deployable)
 
-## CI/CD Integration (Future)
+## CI/CD Integration
 
-When CI is set up:
-- PRs must pass CI checks before merge
+**Current CI Checks:**
+- **Semantic Pull Request** - PR titles must follow conventional commits format
+  - Required format: `type: description` or `type(scope): description`
+  - Valid types: feat, fix, test, refactor, docs, style, chore, perf
+  - Example: `feat: add Chore model with freezed`
+  - This check will fail if PR title doesn't match the format
+- **Spell Check** - Code and documentation must pass spell check
+  - Uses cspell.json configuration
+  - Add project-specific terms to `words` array in cspell.json
+  - Generated files are automatically ignored
+
+**Future CI Checks:**
 - Automated tests run on every push
 - Code coverage reported
 - Lint checks enforced
+- Build verification
 
 ## Quick Reference (Trunk-Based Development)
 
@@ -390,9 +429,10 @@ git add .
 git commit -m "feat: description"
 # or: fix:, test:, docs:, refactor:, style:, chore:
 
-# Push and create PR (merges to main)
+# Push and create PR with semantic title (merges to main)
 git push -u origin phase-X-name
-gh pr create --title "[Phase X] Title" --body "Description"
+gh pr create --title "feat: description" --body "Description"
+# Examples: "feat: add Chore model", "chore: update dependencies"
 
 # After PR merged to main
 git checkout main && git pull origin main
