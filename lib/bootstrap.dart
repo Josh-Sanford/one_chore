@@ -4,28 +4,26 @@ import 'dart:developer';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class ProviderLogger extends ProviderObserver {
+final class ProviderLogger extends ProviderObserver {
   const ProviderLogger();
 
   @override
   void didUpdateProvider(
-    ProviderBase<Object?> provider,
+    ProviderObserverContext context,
     Object? previousValue,
     Object? newValue,
-    ProviderContainer container,
   ) {
-    log('Provider updated: ${provider.name ?? provider.runtimeType}');
+    log('Provider updated: ${context.provider.runtimeType}');
   }
 
   @override
   void providerDidFail(
-    ProviderBase<Object?> provider,
+    ProviderObserverContext context,
     Object error,
     StackTrace stackTrace,
-    ProviderContainer container,
   ) {
     log(
-      'Provider failed: ${provider.name ?? provider.runtimeType}',
+      'Provider failed: ${context.provider.runtimeType}',
       error: error,
       stackTrace: stackTrace,
     );
