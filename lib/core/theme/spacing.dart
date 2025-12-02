@@ -34,19 +34,16 @@ extension SpacingExtension on num {
 extension SpacingContext on BuildContext {
   /// Returns responsive padding based on screen width.
   EdgeInsets get responsiveHorizontalPadding {
-    final width = MediaQuery.of(this).size.width;
-    if (width > 600) {
-      return const EdgeInsets.symmetric(horizontal: AppSpacing.xlg);
-    }
-    return const EdgeInsets.symmetric(horizontal: AppSpacing.md);
+    return EdgeInsets.symmetric(horizontal: _getResponsiveSpacing());
   }
 
   /// Returns responsive padding based on screen width.
   EdgeInsets get responsiveAllPadding {
+    return EdgeInsets.all(_getResponsiveSpacing());
+  }
+
+  double _getResponsiveSpacing() {
     final width = MediaQuery.of(this).size.width;
-    if (width > 600) {
-      return const EdgeInsets.all(AppSpacing.xlg);
-    }
-    return const EdgeInsets.all(AppSpacing.md);
+    return width > 600 ? AppSpacing.xlg : AppSpacing.md;
   }
 }
