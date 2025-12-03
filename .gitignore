@@ -111,5 +111,5 @@ app.*.map.json
 !.idea/dictionaries/
 !.idea/runConfigurations/
 
-# Note: l10n files are committed to ensure CI has them
-# lib/l10n/gen/
+# Generated l10n files
+lib/l10n/gen/
