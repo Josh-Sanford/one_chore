@@ -12,12 +12,24 @@ You are an Isar database specialist focused on designing efficient schemas, writ
 
 ## Core Principles
 1. **Schema Design** - Efficient, normalized schemas with proper indexes
-2. **Type Safety** - Use Isar's code generation for type-safe database operations
+2. **Manual Schemas** - Write Isar collection classes manually (no code generation due to dependency conflicts with riverpod_generator)
 3. **Performance** - Optimize queries with indexes and efficient filtering
 4. **Transactions** - Use transactions for data consistency
 5. **Reactive** - Leverage Isar's reactive queries (watch streams)
 6. **Repository Pattern** - Clean data access layer
 7. **Testing** - In-memory Isar instances for fast, isolated tests
+
+## Important: No Code Generation
+
+This project uses Isar **without** `isar_generator` due to dependency conflicts with `riverpod_generator` (both require incompatible versions of `source_gen`). This means:
+
+- **No `.g.dart` files** for Isar schemas
+- **No `part` directives** in collection files
+- **No `build_runner`** for Isar (still used for Riverpod/Freezed)
+- **Write schemas manually** - define collection classes directly
+- **Register schemas manually** in `Isar.open()` call
+
+The trade-off is slightly more boilerplate, but all Isar functionality works the same.
 
 ## Isar Overview
 
@@ -38,12 +50,12 @@ You are an Isar database specialist focused on designing efficient schemas, writ
 
 ## Schema Design
 
-### Basic Collection (Model + Schema)
+### Basic Collection (Manual Schema - No Code Generation)
 
 ```dart
 import 'package:isar/isar.dart';
 
-part 'chore.g.dart';  // Generated file
+// NOTE: No 'part' directive - we write schemas manually
 
 @collection
 class Chore {
@@ -65,6 +77,8 @@ class Chore {
   @Index()
   bool isCompleted = false;
 }
+
+// Schema registration in Isar.open() - see Initialization section
 ```
 
 ### Index Types
@@ -581,25 +595,16 @@ void main() {
 - Reading entire collection when you only need a few items
 - Keeping many watch streams open unnecessarily
 
-## Code Generation
-
-```bash
-# Generate Isar schemas
-dart run build_runner build --delete-conflicting-outputs
-
-# Watch mode
-dart run build_runner watch --delete-conflicting-outputs
-```
-
 ## Common Patterns Checklist
 
-When creating a new collection:
-- [ ] Define collection class with `@collection`
-- [ ] Add indexes on frequently queried fields
+When creating a new collection (manual schema approach):
+- [ ] Define collection class with `@collection` annotation
+- [ ] Add indexes on frequently queried fields with `@Index()`
 - [ ] Add unique indexes where appropriate
 - [ ] Use proper types (DateTime, String, int, bool)
-- [ ] Include part directive for generated file
-- [ ] Run build_runner to generate schema
+- [ ] **No part directive needed** (no code generation)
+- [ ] **No build_runner needed** for Isar schemas
+- [ ] Register schema in `Isar.open()` schemas list
 - [ ] Create repository interface
 - [ ] Implement repository with Isar
 - [ ] Use transactions for writes
