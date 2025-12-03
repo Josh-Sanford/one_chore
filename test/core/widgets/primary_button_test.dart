@@ -39,8 +39,9 @@ void main() {
       expect(pressed, isTrue);
     });
 
-    testWidgets('does not call onPressed when onPressed is null',
-        (tester) async {
+    testWidgets('does not call onPressed when onPressed is null', (
+      tester,
+    ) async {
       await tester.pumpWidget(
         const MaterialApp(
           home: Scaffold(
@@ -56,8 +57,9 @@ void main() {
       expect(button.onPressed, isNull);
     });
 
-    testWidgets('shows loading indicator when isLoading is true',
-        (tester) async {
+    testWidgets('shows loading indicator when isLoading is true', (
+      tester,
+    ) async {
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(

@@ -54,15 +54,15 @@ class PrimaryButton extends StatelessWidget {
               ),
             )
           : icon != null
-              ? Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(icon, size: 20),
-                    AppSpacing.sm.horizontalSpace,
-                    Text(label),
-                  ],
-                )
-              : Text(label),
+          ? Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(icon, size: 20),
+                AppSpacing.sm.horizontalSpace,
+                Text(label),
+              ],
+            )
+          : Text(label),
     );
   }
 }

@@ -66,24 +66,26 @@ void main() {
       expect(find.byType(Text), findsOneWidget);
     });
 
-    testWidgets('renders action button when actionLabel and onAction provided',
-        (tester) async {
-      await tester.pumpWidget(
-        MaterialApp(
-          home: Scaffold(
-            body: EmptyStateWidget(
-              icon: Icons.inbox,
-              title: 'No items',
-              actionLabel: 'Add Item',
-              onAction: () {},
+    testWidgets(
+      'renders action button when actionLabel and onAction provided',
+      (tester) async {
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Scaffold(
+              body: EmptyStateWidget(
+                icon: Icons.inbox,
+                title: 'No items',
+                actionLabel: 'Add Item',
+                onAction: () {},
+              ),
             ),
           ),
-        ),
-      );
+        );
 
-      expect(find.text('Add Item'), findsOneWidget);
-      expect(find.byType(FilledButton), findsOneWidget);
-    });
+        expect(find.text('Add Item'), findsOneWidget);
+        expect(find.byType(FilledButton), findsOneWidget);
+      },
+    );
 
     testWidgets('calls onAction when action button is tapped', (tester) async {
       var actionCalled = false;
@@ -107,8 +109,9 @@ void main() {
       expect(actionCalled, isTrue);
     });
 
-    testWidgets('does not render action button when actionLabel is null',
-        (tester) async {
+    testWidgets('does not render action button when actionLabel is null', (
+      tester,
+    ) async {
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
@@ -124,8 +127,9 @@ void main() {
       expect(find.byType(FilledButton), findsNothing);
     });
 
-    testWidgets('does not render action button when onAction is null',
-        (tester) async {
+    testWidgets('does not render action button when onAction is null', (
+      tester,
+    ) async {
       await tester.pumpWidget(
         const MaterialApp(
           home: Scaffold(

@@ -39,8 +39,9 @@ void main() {
       expect(pressed, isTrue);
     });
 
-    testWidgets('does not call onPressed when onPressed is null',
-        (tester) async {
+    testWidgets('does not call onPressed when onPressed is null', (
+      tester,
+    ) async {
       await tester.pumpWidget(
         const MaterialApp(
           home: Scaffold(
