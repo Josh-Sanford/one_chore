@@ -3,7 +3,6 @@ import 'dart:developer';
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 
 final class ProviderLogger extends ProviderObserver {
   const ProviderLogger();
@@ -36,10 +35,7 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
     log(details.exceptionAsString(), stackTrace: details.stack);
   };
 
-  // Initialize Hive for local storage
-  await Hive.initFlutter();
-
-  // Add cross-flavor configuration here
+  // Isar initialization will be added in Phase 2
 
   runApp(
     ProviderScope(
