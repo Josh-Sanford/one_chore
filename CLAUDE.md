@@ -49,11 +49,11 @@ OneChore is a productivity app that helps users accomplish one task per day by l
 
 ## Technical Decisions
 
-### Storage: Isar
+### Storage: Isar (without code generation)
 - **Why:** 10x faster than Hive, better query system, built-in indexes
 - **Use Case:** Filtering pending chores, date-based queries, calculating streaks and statistics
 - **Setup:** Initialize in `bootstrap.dart` before app runs
-- **Code Generation:** `isar_generator` for schema classes
+- **No Code Generation:** `isar_generator` conflicts with `riverpod_generator` (incompatible `source_gen` versions), so write Isar collection schemas manually
 
 ### Animations: Lottie + Flutter Built-ins
 - **Lottie:** For celebration/confetti animations on chore completion (download from LottieFiles.com)
@@ -231,8 +231,9 @@ flutter run --flavor production --target lib/main_production.dart
 This project uses code generation for multiple packages:
 - `freezed` - Immutable data models
 - `riverpod_generator` - Providers with `@riverpod` annotations
-- `isar_generator` - Database schema classes
 - `json_serializable` - JSON serialization (if needed)
+
+**Note:** Isar schemas are written manually (no `isar_generator`) due to dependency conflicts with `riverpod_generator`.
 
 ```sh
 # Watch mode (recommended during development)
