@@ -64,7 +64,7 @@ const ChoreCollectionSchema = CollectionSchema(
           name: r'id',
           type: IndexType.hash,
           caseSensitive: true,
-        )
+        ),
       ],
     ),
     r'createdAt': IndexSchema(
@@ -77,7 +77,7 @@ const ChoreCollectionSchema = CollectionSchema(
           name: r'createdAt',
           type: IndexType.value,
           caseSensitive: false,
-        )
+        ),
       ],
     ),
     r'isCompleted': IndexSchema(
@@ -90,7 +90,7 @@ const ChoreCollectionSchema = CollectionSchema(
           name: r'isCompleted',
           type: IndexType.value,
           caseSensitive: false,
-        )
+        ),
       ],
     ),
   },
@@ -186,7 +186,10 @@ List<IsarLinkBase<dynamic>> _choreCollectionGetLinks(ChoreCollection object) {
 }
 
 void _choreCollectionAttach(
-    IsarCollection<dynamic> col, Id id, ChoreCollection object) {
+  IsarCollection<dynamic> col,
+  Id id,
+  ChoreCollection object,
+) {
   object.isarId = id;
 }
 
