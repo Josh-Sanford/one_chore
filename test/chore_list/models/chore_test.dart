@@ -262,23 +262,25 @@ void main() {
         expect(chore1, isNot(equals(chore2)));
       });
 
-      test('chore with null completedAt is not equal to chore with completedAt',
-          () {
-        final now = DateTime.now();
-        final chore1 = Chore(
-          id: 'test-id',
-          title: 'Test Chore',
-          createdAt: now,
-        );
-        final chore2 = Chore(
-          id: 'test-id',
-          title: 'Test Chore',
-          createdAt: now,
-          completedAt: now,
-        );
+      test(
+        'chore with null completedAt is not equal to chore with completedAt',
+        () {
+          final now = DateTime.now();
+          final chore1 = Chore(
+            id: 'test-id',
+            title: 'Test Chore',
+            createdAt: now,
+          );
+          final chore2 = Chore(
+            id: 'test-id',
+            title: 'Test Chore',
+            createdAt: now,
+            completedAt: now,
+          );
 
-        expect(chore1, isNot(equals(chore2)));
-      });
+          expect(chore1, isNot(equals(chore2)));
+        },
+      );
     });
 
     group('hashCode', () {
@@ -425,19 +427,21 @@ void main() {
         expect(restored, equals(original));
       });
 
-      test('JSON round-trip with null optional fields returns equal object',
-          () {
-        final original = Chore(
-          id: 'test-id',
-          title: 'Test Chore',
-          createdAt: DateTime.parse('2023-01-01T12:00:00.000Z'),
-        );
+      test(
+        'JSON round-trip with null optional fields returns equal object',
+        () {
+          final original = Chore(
+            id: 'test-id',
+            title: 'Test Chore',
+            createdAt: DateTime.parse('2023-01-01T12:00:00.000Z'),
+          );
 
-        final json = original.toJson();
-        final restored = Chore.fromJson(json);
+          final json = original.toJson();
+          final restored = Chore.fromJson(json);
 
-        expect(restored, equals(original));
-      });
+          expect(restored, equals(original));
+        },
+      );
     });
   });
 
@@ -648,29 +652,31 @@ void main() {
         expect(convertedChore.isCompleted, true);
       });
 
-      test('correctly creates Chore with all fields including optional ones',
-          () {
-        final now = DateTime(2023);
-        final completedTime = DateTime(2023, 1, 2);
-        final chore = Chore(
-          id: 'test-id-456',
-          title: 'Full Test Chore',
-          createdAt: now,
-          description: 'Complete description',
-          completedAt: completedTime,
-          isCompleted: true,
-        );
-        final collection = ChoreCollection.fromChore(chore);
+      test(
+        'correctly creates Chore with all fields including optional ones',
+        () {
+          final now = DateTime(2023);
+          final completedTime = DateTime(2023, 1, 2);
+          final chore = Chore(
+            id: 'test-id-456',
+            title: 'Full Test Chore',
+            createdAt: now,
+            description: 'Complete description',
+            completedAt: completedTime,
+            isCompleted: true,
+          );
+          final collection = ChoreCollection.fromChore(chore);
 
-        final convertedChore = collection.toChore();
+          final convertedChore = collection.toChore();
 
-        expect(convertedChore.id, 'test-id-456');
-        expect(convertedChore.title, 'Full Test Chore');
-        expect(convertedChore.createdAt, now);
-        expect(convertedChore.description, 'Complete description');
-        expect(convertedChore.completedAt, completedTime);
-        expect(convertedChore.isCompleted, true);
-      });
+          expect(convertedChore.id, 'test-id-456');
+          expect(convertedChore.title, 'Full Test Chore');
+          expect(convertedChore.createdAt, now);
+          expect(convertedChore.description, 'Complete description');
+          expect(convertedChore.completedAt, completedTime);
+          expect(convertedChore.isCompleted, true);
+        },
+      );
     });
 
     group('round-trip conversion', () {

@@ -19,12 +19,12 @@ class ChoreCollection {
   /// Use this constructor to convert a domain model to an Isar entity
   /// before persisting to the database.
   ChoreCollection.fromChore(Chore chore)
-      : id = chore.id,
-        title = chore.title,
-        description = chore.description,
-        createdAt = chore.createdAt,
-        completedAt = chore.completedAt,
-        isCompleted = chore.isCompleted;
+    : id = chore.id,
+      title = chore.title,
+      description = chore.description,
+      createdAt = chore.createdAt,
+      completedAt = chore.completedAt,
+      isCompleted = chore.isCompleted;
 
   /// Isar auto-increment ID (primary key).
   Id isarId = Isar.autoIncrement;
