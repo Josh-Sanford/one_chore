@@ -10,26 +10,28 @@ abstract class AppRoutes {
   static const String settings = '/settings';
 }
 
-/// Global navigation key for nested navigation.
-final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey<NavigatorState>();
-
-/// Shell navigation key for bottom nav shell.
-final GlobalKey<NavigatorState> shellNavigatorKey = GlobalKey<NavigatorState>();
-
 /// App router configuration using GoRouter.
 ///
 /// Uses ShellRoute pattern to maintain persistent bottom navigation
 /// across all main screens.
+///
+/// Creates fresh navigator keys for each router instance to ensure
+/// proper isolation between test runs.
 GoRouter createAppRouter({
   required Widget Function(BuildContext, GoRouterState, Widget) shellBuilder,
   required List<RouteBase> routes,
+  GlobalKey<NavigatorState>? rootNavigatorKey,
+  GlobalKey<NavigatorState>? shellNavigatorKey,
 }) {
+  final rootKey = rootNavigatorKey ?? GlobalKey<NavigatorState>();
+  final shellKey = shellNavigatorKey ?? GlobalKey<NavigatorState>();
+
   return GoRouter(
-    navigatorKey: rootNavigatorKey,
+    navigatorKey: rootKey,
     initialLocation: AppRoutes.home,
     routes: [
       ShellRoute(
-        navigatorKey: shellNavigatorKey,
+        navigatorKey: shellKey,
         builder: shellBuilder,
         routes: routes,
       ),

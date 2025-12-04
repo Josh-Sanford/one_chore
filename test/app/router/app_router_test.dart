@@ -26,16 +26,6 @@ void main() {
     });
   });
 
-  group('Navigator Keys', () {
-    test('rootNavigatorKey is not null', () {
-      expect(rootNavigatorKey, isNotNull);
-    });
-
-    test('shellNavigatorKey is not null', () {
-      expect(shellNavigatorKey, isNotNull);
-    });
-  });
-
   group('createAppRouter', () {
     test('creates GoRouter instance', () {
       final router = createAppRouter(
@@ -51,8 +41,8 @@ void main() {
       expect(router, isA<GoRouter>());
     });
 
-    test('uses rootNavigatorKey', () {
-      final router = createAppRouter(
+    test('creates fresh navigator keys by default', () {
+      final router1 = createAppRouter(
         shellBuilder: (context, state, child) => child,
         routes: [
           GoRoute(
@@ -62,8 +52,40 @@ void main() {
         ],
       );
 
-      // Verify the router uses the root navigator key
-      expect(router.configuration.navigatorKey, rootNavigatorKey);
+      final router2 = createAppRouter(
+        shellBuilder: (context, state, child) => child,
+        routes: [
+          GoRoute(
+            path: AppRoutes.home,
+            builder: (context, state) => const Placeholder(),
+          ),
+        ],
+      );
+
+      // Each router should have different navigator keys
+      expect(
+        router1.configuration.navigatorKey,
+        isNot(router2.configuration.navigatorKey),
+      );
+    });
+
+    test('uses provided navigator keys when specified', () {
+      final rootKey = GlobalKey<NavigatorState>();
+      final shellKey = GlobalKey<NavigatorState>();
+
+      final router = createAppRouter(
+        shellBuilder: (context, state, child) => child,
+        routes: [
+          GoRoute(
+            path: AppRoutes.home,
+            builder: (context, state) => const Placeholder(),
+          ),
+        ],
+        rootNavigatorKey: rootKey,
+        shellNavigatorKey: shellKey,
+      );
+
+      expect(router.configuration.navigatorKey, rootKey);
     });
 
     test('creates router with shell route containing provided routes', () {
