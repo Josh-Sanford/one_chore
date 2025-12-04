@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:one_chore/core/database/database.dart';
 
 final class ProviderLogger extends ProviderObserver {
   const ProviderLogger();
@@ -35,7 +36,19 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
     log(details.exceptionAsString(), stackTrace: details.stack);
   };
 
-  // Isar initialization will be added in Phase 2
+  // Initialize Isar database before running the app
+  try {
+    await IsarDatabase.initialize();
+    log('Isar database initialized successfully');
+  } catch (error, stackTrace) {
+    log(
+      'Failed to initialize Isar database',
+      error: error,
+      stackTrace: stackTrace,
+    );
+    // Rethrow to prevent app from starting with broken database
+    rethrow;
+  }
 
   runApp(
     ProviderScope(

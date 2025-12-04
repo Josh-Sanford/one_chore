@@ -1,11 +1,13 @@
 import 'package:isar/isar.dart';
 import 'package:one_chore/chore_list/models/chore.dart';
 
+part 'chore_collection.g.dart';
+
 /// Isar collection for storing [Chore] objects.
 ///
-/// This is a manual Isar schema (no code generation) because
-/// isar_generator conflicts with riverpod_generator (incompatible
-/// source_gen versions).
+/// This uses Isar code generation, but since isar_generator conflicts
+/// with freezed (incompatible source_gen versions), we generate schemas
+/// separately and commit the .g.dart files.
 ///
 /// The collection stores all chore fields with proper indexing for
 /// efficient queries:
