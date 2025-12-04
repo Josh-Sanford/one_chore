@@ -59,5 +59,29 @@ void main() {
 
       expect(find.byIcon(Icons.checklist), findsOneWidget);
     });
+
+    testWidgets('empty state action button can be tapped', (tester) async {
+      await tester.pumpApp(ChoreListScreen());
+      await tester.pumpAndSettle();
+
+      // Tap the "Add a Chore" button in empty state
+      await tester.tap(find.text('Add a Chore'));
+      await tester.pumpAndSettle();
+
+      // Button should be tappable without error (action is TODO for Phase 2)
+      expect(find.byType(ChoreListScreen), findsOneWidget);
+    });
+
+    testWidgets('floating action button can be tapped', (tester) async {
+      await tester.pumpApp(ChoreListScreen());
+      await tester.pumpAndSettle();
+
+      // Tap the FAB
+      await tester.tap(find.byType(FloatingActionButton));
+      await tester.pumpAndSettle();
+
+      // FAB should be tappable without error (action is TODO for Phase 2)
+      expect(find.byType(ChoreListScreen), findsOneWidget);
+    });
   });
 }

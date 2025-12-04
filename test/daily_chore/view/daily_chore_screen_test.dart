@@ -47,5 +47,17 @@ void main() {
 
       expect(find.byIcon(Icons.task_alt), findsOneWidget);
     });
+
+    testWidgets('empty state action button can be tapped', (tester) async {
+      await tester.pumpApp(DailyChoreScreen());
+      await tester.pumpAndSettle();
+
+      // Tap the "Select a Chore" button in empty state
+      await tester.tap(find.text('Select a Chore'));
+      await tester.pumpAndSettle();
+
+      // Button should be tappable without error (action is TODO for Phase 2)
+      expect(find.byType(DailyChoreScreen), findsOneWidget);
+    });
   });
 }
