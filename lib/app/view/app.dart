@@ -12,40 +12,40 @@ import 'package:one_chore/visualization/view/visualization_screen.dart';
 
 /// Creates a new app router instance with fresh navigator keys.
 GoRouter _createRouter() => createAppRouter(
-      shellBuilder: (context, state, child) => AppScaffold(child: child),
-      routes: [
-        GoRoute(
-          path: AppRoutes.home,
-          pageBuilder: (context, state) => const NoTransitionPage(
-            child: DailyChoreScreen(),
-          ),
-        ),
-        GoRoute(
-          path: AppRoutes.chores,
-          pageBuilder: (context, state) => const NoTransitionPage(
-            child: ChoreListScreen(),
-          ),
-        ),
-        GoRoute(
-          path: AppRoutes.history,
-          pageBuilder: (context, state) => const NoTransitionPage(
-            child: HistoryScreen(),
-          ),
-        ),
-        GoRoute(
-          path: AppRoutes.visualization,
-          pageBuilder: (context, state) => const NoTransitionPage(
-            child: VisualizationScreen(),
-          ),
-        ),
-        GoRoute(
-          path: AppRoutes.settings,
-          pageBuilder: (context, state) => const NoTransitionPage(
-            child: SettingsScreen(),
-          ),
-        ),
-      ],
-    );
+  shellBuilder: (context, state, child) => AppScaffold(child: child),
+  routes: [
+    GoRoute(
+      path: AppRoutes.home,
+      pageBuilder: (context, state) => const NoTransitionPage(
+        child: DailyChoreScreen(),
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.chores,
+      pageBuilder: (context, state) => const NoTransitionPage(
+        child: ChoreListScreen(),
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.history,
+      pageBuilder: (context, state) => const NoTransitionPage(
+        child: HistoryScreen(),
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.visualization,
+      pageBuilder: (context, state) => const NoTransitionPage(
+        child: VisualizationScreen(),
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.settings,
+      pageBuilder: (context, state) => const NoTransitionPage(
+        child: SettingsScreen(),
+      ),
+    ),
+  ],
+);
 
 class App extends StatefulWidget {
   const App({super.key});

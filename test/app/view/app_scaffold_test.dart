@@ -31,8 +31,7 @@ void main() {
               ),
               GoRoute(
                 path: AppRoutes.visualization,
-                builder: (context, state) =>
-                    const Text('Visualization Screen'),
+                builder: (context, state) => const Text('Visualization Screen'),
               ),
               GoRoute(
                 path: AppRoutes.settings,
