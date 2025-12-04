@@ -1,3 +1,9 @@
+// coverage:ignore-file
+// This file contains platform-specific initialization code that requires
+// native libraries (Isar, path_provider) which are not available in the
+// Dart VM test environment. See test/core/database/database_test.dart for
+// tests covering the error handling and lifecycle management.
+
 import 'package:isar/isar.dart';
 import 'package:one_chore/chore_list/models/chore_collection.dart';
 import 'package:path_provider/path_provider.dart';
