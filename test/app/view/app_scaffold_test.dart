@@ -61,8 +61,9 @@ void main() {
 
       expect(find.byType(BottomNavigationBar), findsOneWidget);
 
-      final bottomNav =
-          tester.widget<BottomNavigationBar>(find.byType(BottomNavigationBar));
+      final bottomNav = tester.widget<BottomNavigationBar>(
+        find.byType(BottomNavigationBar),
+      );
       expect(bottomNav.items.length, 5);
     });
 
@@ -79,8 +80,9 @@ void main() {
     testWidgets('starts with Today tab selected', (tester) async {
       await pumpTestApp(tester);
 
-      final bottomNav =
-          tester.widget<BottomNavigationBar>(find.byType(BottomNavigationBar));
+      final bottomNav = tester.widget<BottomNavigationBar>(
+        find.byType(BottomNavigationBar),
+      );
       expect(bottomNav.currentIndex, 0);
       expect(find.text('Today Screen'), findsOneWidget);
     });
@@ -93,8 +95,9 @@ void main() {
 
       expect(find.text('Chores Screen'), findsOneWidget);
 
-      final bottomNav =
-          tester.widget<BottomNavigationBar>(find.byType(BottomNavigationBar));
+      final bottomNav = tester.widget<BottomNavigationBar>(
+        find.byType(BottomNavigationBar),
+      );
       expect(bottomNav.currentIndex, 1);
     });
 
@@ -106,8 +109,9 @@ void main() {
 
       expect(find.text('History Screen'), findsOneWidget);
 
-      final bottomNav =
-          tester.widget<BottomNavigationBar>(find.byType(BottomNavigationBar));
+      final bottomNav = tester.widget<BottomNavigationBar>(
+        find.byType(BottomNavigationBar),
+      );
       expect(bottomNav.currentIndex, 2);
     });
 
@@ -119,8 +123,9 @@ void main() {
 
       expect(find.text('Visualization Screen'), findsOneWidget);
 
-      final bottomNav =
-          tester.widget<BottomNavigationBar>(find.byType(BottomNavigationBar));
+      final bottomNav = tester.widget<BottomNavigationBar>(
+        find.byType(BottomNavigationBar),
+      );
       expect(bottomNav.currentIndex, 3);
     });
 
@@ -132,8 +137,9 @@ void main() {
 
       expect(find.text('Settings Screen'), findsOneWidget);
 
-      final bottomNav =
-          tester.widget<BottomNavigationBar>(find.byType(BottomNavigationBar));
+      final bottomNav = tester.widget<BottomNavigationBar>(
+        find.byType(BottomNavigationBar),
+      );
       expect(bottomNav.currentIndex, 4);
     });
 
@@ -148,16 +154,18 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.text('Today Screen'), findsOneWidget);
 
-      final bottomNav =
-          tester.widget<BottomNavigationBar>(find.byType(BottomNavigationBar));
+      final bottomNav = tester.widget<BottomNavigationBar>(
+        find.byType(BottomNavigationBar),
+      );
       expect(bottomNav.currentIndex, 0);
     });
 
     testWidgets('all nav items have tooltips', (tester) async {
       await pumpTestApp(tester);
 
-      final bottomNav =
-          tester.widget<BottomNavigationBar>(find.byType(BottomNavigationBar));
+      final bottomNav = tester.widget<BottomNavigationBar>(
+        find.byType(BottomNavigationBar),
+      );
 
       expect(bottomNav.items[0].tooltip, 'Today');
       expect(bottomNav.items[1].tooltip, 'Chores');
@@ -169,8 +177,9 @@ void main() {
     testWidgets('tooltips match labels for accessibility', (tester) async {
       await pumpTestApp(tester);
 
-      final bottomNav =
-          tester.widget<BottomNavigationBar>(find.byType(BottomNavigationBar));
+      final bottomNav = tester.widget<BottomNavigationBar>(
+        find.byType(BottomNavigationBar),
+      );
 
       for (var i = 0; i < bottomNav.items.length; i++) {
         expect(
