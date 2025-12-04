@@ -349,13 +349,21 @@ git pull origin main
 
 Agents should follow this workflow:
 
+**One PR at a Time (Important!):**
+- Create ONE PR, then wait for user review/merge before starting the next
+- Do NOT batch multiple PRs or create PR chains (e.g., PR #2 targeting PR #1's branch)
+- This reduces rework risk and credit usage if changes are needed
+- After merge, pull `main` and start the next PR fresh
+
 **When starting work:**
-1. Create feature branch
-2. Implement feature
-3. Write comprehensive tests
-4. Run analysis and tests
-5. Commit with clear message
-6. Create PR with proper description
+1. Pull latest `main`
+2. Create feature branch
+3. Implement feature
+4. Write comprehensive tests
+5. Run analysis and tests
+6. Commit with clear message
+7. Create PR targeting `main`
+8. **STOP** - Wait for user to review and merge before starting next PR
 
 **Example prompt for agent:**
 ```
@@ -369,11 +377,13 @@ Use the flutter-frontend-engineer agent to:
 7. Create PR targeting main branch
 
 DO NOT merge - just create the PR for review.
+Wait for merge before starting the next PR.
 ```
 
 ## Best Practices
 
 ### ✅ Do This (Trunk-Based Development)
+- **One PR at a time** - wait for merge before starting next PR
 - Keep PRs small (< 500 lines ideal)
 - Keep branches short-lived (< 1 day ideal, < 2 days max)
 - Merge to `main` frequently (multiple times per day when possible)
@@ -386,6 +396,7 @@ DO NOT merge - just create the PR for review.
 - Ensure `main` stays deployable after every merge
 
 ### ❌ Don't Do This
+- **Batch multiple PRs** or create PR chains targeting other PR branches
 - Massive PRs with multiple features
 - Long-lived feature branches (> 2 days)
 - Committing without tests
