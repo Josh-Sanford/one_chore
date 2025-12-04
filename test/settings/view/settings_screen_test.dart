@@ -86,8 +86,9 @@ void main() {
       await tester.pumpAndSettle();
 
       final opacityWidgets = tester.widgetList<Opacity>(find.byType(Opacity));
-      final disabledTiles =
-          opacityWidgets.where((widget) => widget.opacity == 0.6).toList();
+      final disabledTiles = opacityWidgets
+          .where((widget) => widget.opacity == 0.6)
+          .toList();
       expect(disabledTiles.length, 2);
     });
   });

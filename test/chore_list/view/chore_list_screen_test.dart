@@ -36,8 +36,9 @@ void main() {
       );
     });
 
-    testWidgets('shows Add a Chore action button in empty state',
-        (tester) async {
+    testWidgets('shows Add a Chore action button in empty state', (
+      tester,
+    ) async {
       await tester.pumpApp(ChoreListScreen());
       await tester.pumpAndSettle();
 
