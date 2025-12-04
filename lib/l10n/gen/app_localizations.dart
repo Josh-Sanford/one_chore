@@ -102,6 +102,168 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Counter'**
   String get counterAppBarTitle;
+
+  /// Bottom nav label for the daily chore screen
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get navToday;
+
+  /// Bottom nav label for the chore list screen
+  ///
+  /// In en, this message translates to:
+  /// **'Chores'**
+  String get navChores;
+
+  /// Bottom nav label for the history screen
+  ///
+  /// In en, this message translates to:
+  /// **'History'**
+  String get navHistory;
+
+  /// Bottom nav label for the visualization screen
+  ///
+  /// In en, this message translates to:
+  /// **'Progress'**
+  String get navProgress;
+
+  /// Bottom nav label for the settings screen
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get navSettings;
+
+  /// App bar title for the daily chore screen
+  ///
+  /// In en, this message translates to:
+  /// **'Today\'s Chore'**
+  String get todayScreenTitle;
+
+  /// App bar title for the chore list screen
+  ///
+  /// In en, this message translates to:
+  /// **'My Chores'**
+  String get choresScreenTitle;
+
+  /// App bar title for the history screen
+  ///
+  /// In en, this message translates to:
+  /// **'History'**
+  String get historyScreenTitle;
+
+  /// App bar title for the visualization screen
+  ///
+  /// In en, this message translates to:
+  /// **'Progress'**
+  String get progressScreenTitle;
+
+  /// App bar title for the settings screen
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settingsScreenTitle;
+
+  /// Empty state title when no daily chore is selected
+  ///
+  /// In en, this message translates to:
+  /// **'No chore selected'**
+  String get noChoreSelectedTitle;
+
+  /// Empty state message when no daily chore is selected
+  ///
+  /// In en, this message translates to:
+  /// **'Select a chore from your list to focus on today.'**
+  String get noChoreSelectedMessage;
+
+  /// Button label to select a chore
+  ///
+  /// In en, this message translates to:
+  /// **'Select a Chore'**
+  String get selectChoreAction;
+
+  /// Empty state title when no chores exist
+  ///
+  /// In en, this message translates to:
+  /// **'No chores yet'**
+  String get noChoresTitle;
+
+  /// Empty state message when no chores exist
+  ///
+  /// In en, this message translates to:
+  /// **'Add your first chore to get started. Remember, just one at a time!'**
+  String get noChoresMessage;
+
+  /// Button label to add a chore
+  ///
+  /// In en, this message translates to:
+  /// **'Add a Chore'**
+  String get addChoreAction;
+
+  /// Empty state title when no history exists
+  ///
+  /// In en, this message translates to:
+  /// **'No history yet'**
+  String get noHistoryTitle;
+
+  /// Empty state message when no history exists
+  ///
+  /// In en, this message translates to:
+  /// **'Complete your first chore to start building your streak!'**
+  String get noHistoryMessage;
+
+  /// Empty state title when no progress data exists
+  ///
+  /// In en, this message translates to:
+  /// **'No progress yet'**
+  String get noProgressTitle;
+
+  /// Empty state message when no progress data exists
+  ///
+  /// In en, this message translates to:
+  /// **'Complete some chores to see your progress over time.'**
+  String get noProgressMessage;
+
+  /// Settings section title for notifications
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get settingsNotificationsSection;
+
+  /// Settings option for daily reminder
+  ///
+  /// In en, this message translates to:
+  /// **'Daily Reminder'**
+  String get settingsDailyReminder;
+
+  /// Settings section title for appearance
+  ///
+  /// In en, this message translates to:
+  /// **'Appearance'**
+  String get settingsAppearanceSection;
+
+  /// Settings option for theme
+  ///
+  /// In en, this message translates to:
+  /// **'Theme'**
+  String get settingsTheme;
+
+  /// Settings section title for about
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get settingsAboutSection;
+
+  /// Settings option for version
+  ///
+  /// In en, this message translates to:
+  /// **'Version'**
+  String get settingsVersion;
+
+  /// Label for features that are not yet implemented
+  ///
+  /// In en, this message translates to:
+  /// **'Coming soon'**
+  String get comingSoon;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

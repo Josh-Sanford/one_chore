@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:one_chore/core/theme/spacing.dart';
+import 'package:one_chore/l10n/l10n.dart';
 
 /// Settings screen for app configuration.
 ///
@@ -10,21 +11,23 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Settings'),
+        title: Text(l10n.settingsScreenTitle),
       ),
       body: ListView(
         padding: const EdgeInsets.all(AppSpacing.md),
-        children: const [
+        children: [
           _SettingsSection(
-            title: 'Notifications',
+            title: l10n.settingsNotificationsSection,
             children: [
               _SettingsTile(
                 icon: Icons.notifications_outlined,
-                title: 'Daily Reminder',
-                subtitle: 'Coming soon',
-                trailing: Switch(
+                title: l10n.settingsDailyReminder,
+                subtitle: l10n.comingSoon,
+                trailing: const Switch(
                   value: false,
                   onChanged: null,
                 ),
@@ -32,26 +35,26 @@ class SettingsScreen extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: AppSpacing.md),
+          const SizedBox(height: AppSpacing.md),
           _SettingsSection(
-            title: 'Appearance',
+            title: l10n.settingsAppearanceSection,
             children: [
               _SettingsTile(
                 icon: Icons.dark_mode_outlined,
-                title: 'Theme',
-                subtitle: 'Coming soon',
-                trailing: Icon(Icons.chevron_right),
+                title: l10n.settingsTheme,
+                subtitle: l10n.comingSoon,
+                trailing: const Icon(Icons.chevron_right),
                 isDisabled: true,
               ),
             ],
           ),
-          SizedBox(height: AppSpacing.md),
+          const SizedBox(height: AppSpacing.md),
           _SettingsSection(
-            title: 'About',
+            title: l10n.settingsAboutSection,
             children: [
               _SettingsTile(
                 icon: Icons.info_outline,
-                title: 'Version',
+                title: l10n.settingsVersion,
                 subtitle: '1.0.0',
               ),
             ],

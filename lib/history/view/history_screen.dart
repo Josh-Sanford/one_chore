@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:one_chore/core/theme/spacing.dart';
 import 'package:one_chore/core/widgets/widgets.dart';
+import 'package:one_chore/l10n/l10n.dart';
 
 /// History screen showing completed chores.
 ///
@@ -11,17 +12,19 @@ class HistoryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('History'),
+        title: Text(l10n.historyScreenTitle),
       ),
-      body: const Center(
+      body: Center(
         child: Padding(
-          padding: EdgeInsets.all(AppSpacing.lg),
+          padding: const EdgeInsets.all(AppSpacing.lg),
           child: EmptyStateWidget(
             icon: Icons.history,
-            title: 'No history yet',
-            message: 'Complete your first chore to start building your streak!',
+            title: l10n.noHistoryTitle,
+            message: l10n.noHistoryMessage,
           ),
         ),
       ),

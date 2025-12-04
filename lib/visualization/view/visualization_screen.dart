@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:one_chore/core/theme/spacing.dart';
 import 'package:one_chore/core/widgets/widgets.dart';
+import 'package:one_chore/l10n/l10n.dart';
 
 /// Visualization screen showing progress charts.
 ///
@@ -11,17 +12,19 @@ class VisualizationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Progress'),
+        title: Text(l10n.progressScreenTitle),
       ),
-      body: const Center(
+      body: Center(
         child: Padding(
-          padding: EdgeInsets.all(AppSpacing.lg),
+          padding: const EdgeInsets.all(AppSpacing.lg),
           child: EmptyStateWidget(
             icon: Icons.bar_chart,
-            title: 'No progress yet',
-            message: 'Complete some chores to see your progress over time.',
+            title: l10n.noProgressTitle,
+            message: l10n.noProgressMessage,
           ),
         ),
       ),
