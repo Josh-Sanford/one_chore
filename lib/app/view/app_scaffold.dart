@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:one_chore/app/router/app_router.dart';
+import 'package:one_chore/l10n/l10n.dart';
 
 /// App scaffold with bottom navigation bar.
 ///
@@ -17,41 +18,43 @@ class AppScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
+
     return Scaffold(
       body: child,
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _calculateSelectedIndex(context),
         onTap: (index) => _onItemTapped(index, context),
-        items: const [
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.today),
-            activeIcon: Icon(Icons.today),
-            label: 'Today',
-            tooltip: 'Today',
+            icon: const Icon(Icons.today),
+            activeIcon: const Icon(Icons.today),
+            label: l10n.navToday,
+            tooltip: l10n.navToday,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.list_alt_outlined),
-            activeIcon: Icon(Icons.list_alt),
-            label: 'Chores',
-            tooltip: 'Chores',
+            icon: const Icon(Icons.list_alt_outlined),
+            activeIcon: const Icon(Icons.list_alt),
+            label: l10n.navChores,
+            tooltip: l10n.navChores,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.history_outlined),
-            activeIcon: Icon(Icons.history),
-            label: 'History',
-            tooltip: 'History',
+            icon: const Icon(Icons.history_outlined),
+            activeIcon: const Icon(Icons.history),
+            label: l10n.navHistory,
+            tooltip: l10n.navHistory,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.bar_chart_outlined),
-            activeIcon: Icon(Icons.bar_chart),
-            label: 'Progress',
-            tooltip: 'Progress',
+            icon: const Icon(Icons.bar_chart_outlined),
+            activeIcon: const Icon(Icons.bar_chart),
+            label: l10n.navProgress,
+            tooltip: l10n.navProgress,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings_outlined),
-            activeIcon: Icon(Icons.settings),
-            label: 'Settings',
-            tooltip: 'Settings',
+            icon: const Icon(Icons.settings_outlined),
+            activeIcon: const Icon(Icons.settings),
+            label: l10n.navSettings,
+            tooltip: l10n.navSettings,
           ),
         ],
       ),

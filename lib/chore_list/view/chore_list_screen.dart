@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:one_chore/core/theme/spacing.dart';
 import 'package:one_chore/core/widgets/widgets.dart';
+import 'package:one_chore/l10n/l10n.dart';
 
 /// Chore list screen showing all pending chores.
 ///
@@ -11,19 +12,20 @@ class ChoreListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My Chores'),
+        title: Text(l10n.choresScreenTitle),
       ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(AppSpacing.lg),
           child: EmptyStateWidget(
             icon: Icons.checklist,
-            title: 'No chores yet',
-            message: 'Add your first chore to get started. '
-                'Remember, just one at a time!',
-            actionLabel: 'Add a Chore',
+            title: l10n.noChoresTitle,
+            message: l10n.noChoresMessage,
+            actionLabel: l10n.addChoreAction,
             onAction: () {
               // TODO(Phase2): Open add chore dialog.
             },

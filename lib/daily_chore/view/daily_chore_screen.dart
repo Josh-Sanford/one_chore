@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:one_chore/core/theme/spacing.dart';
 import 'package:one_chore/core/widgets/widgets.dart';
+import 'package:one_chore/l10n/l10n.dart';
 
 /// Daily chore screen - the main home screen.
 ///
@@ -11,18 +12,20 @@ class DailyChoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Today's Chore"),
+        title: Text(l10n.todayScreenTitle),
       ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(AppSpacing.lg),
           child: EmptyStateWidget(
             icon: Icons.task_alt,
-            title: 'No chore selected',
-            message: 'Select a chore from your list to focus on today.',
-            actionLabel: 'Select a Chore',
+            title: l10n.noChoreSelectedTitle,
+            message: l10n.noChoreSelectedMessage,
+            actionLabel: l10n.selectChoreAction,
             onAction: () {
               // TODO(Phase2): Navigate to chore list or show selection.
             },
