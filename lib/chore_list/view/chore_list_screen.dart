@@ -21,7 +21,8 @@ class ChoreListScreen extends StatelessWidget {
           child: EmptyStateWidget(
             icon: Icons.checklist,
             title: 'No chores yet',
-            message: 'Add your first chore to get started. '
+            message:
+                'Add your first chore to get started. '
                 'Remember, just one at a time!',
             actionLabel: 'Add a Chore',
             onAction: () {
