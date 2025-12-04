@@ -3,5 +3,121 @@
     "counterAppBarTitle": "Counter",
     "@counterAppBarTitle": {
         "description": "Text shown in the AppBar of the Counter Page"
+    },
+    "navToday": "Today",
+    "@navToday": {
+        "description": "Bottom nav label for the daily chore screen"
+    },
+    "navChores": "Chores",
+    "@navChores": {
+        "description": "Bottom nav label for the chore list screen"
+    },
+    "navHistory": "History",
+    "@navHistory": {
+        "description": "Bottom nav label for the history screen"
+    },
+    "navProgress": "Progress",
+    "@navProgress": {
+        "description": "Bottom nav label for the visualization screen"
+    },
+    "navSettings": "Settings",
+    "@navSettings": {
+        "description": "Bottom nav label for the settings screen"
+    },
+    "todayScreenTitle": "Today's Chore",
+    "@todayScreenTitle": {
+        "description": "App bar title for the daily chore screen"
+    },
+    "choresScreenTitle": "My Chores",
+    "@choresScreenTitle": {
+        "description": "App bar title for the chore list screen"
+    },
+    "historyScreenTitle": "History",
+    "@historyScreenTitle": {
+        "description": "App bar title for the history screen"
+    },
+    "progressScreenTitle": "Progress",
+    "@progressScreenTitle": {
+        "description": "App bar title for the visualization screen"
+    },
+    "settingsScreenTitle": "Settings",
+    "@settingsScreenTitle": {
+        "description": "App bar title for the settings screen"
+    },
+    "noChoreSelectedTitle": "No chore selected",
+    "@noChoreSelectedTitle": {
+        "description": "Empty state title when no daily chore is selected"
+    },
+    "noChoreSelectedMessage": "Select a chore from your list to focus on today.",
+    "@noChoreSelectedMessage": {
+        "description": "Empty state message when no daily chore is selected"
+    },
+    "selectChoreAction": "Select a Chore",
+    "@selectChoreAction": {
+        "description": "Button label to select a chore"
+    },
+    "noChoresTitle": "No chores yet",
+    "@noChoresTitle": {
+        "description": "Empty state title when no chores exist"
+    },
+    "noChoresMessage": "Add your first chore to get started. Remember, just one at a time!",
+    "@noChoresMessage": {
+        "description": "Empty state message when no chores exist"
+    },
+    "addChoreAction": "Add a Chore",
+    "@addChoreAction": {
+        "description": "Button label to add a chore"
+    },
+    "noHistoryTitle": "No history yet",
+    "@noHistoryTitle": {
+        "description": "Empty state title when no history exists"
+    },
+    "noHistoryMessage": "Complete your first chore to start building your streak!",
+    "@noHistoryMessage": {
+        "description": "Empty state message when no history exists"
+    },
+    "noProgressTitle": "No progress yet",
+    "@noProgressTitle": {
+        "description": "Empty state title when no progress data exists"
+    },
+    "noProgressMessage": "Complete some chores to see your progress over time.",
+    "@noProgressMessage": {
+        "description": "Empty state message when no progress data exists"
+    },
+    "settingsNotificationsSection": "Notifications",
+    "@settingsNotificationsSection": {
+        "description": "Settings section title for notifications"
+    },
+    "settingsDailyReminder": "Daily Reminder",
+    "@settingsDailyReminder": {
+        "description": "Settings option for daily reminder"
+    },
+    "settingsDailyReminderSubtitle": "Get reminded to complete your chore",
+    "@settingsDailyReminderSubtitle": {
+        "description": "Subtitle for daily reminder setting"
+    },
+    "settingsAppearanceSection": "Appearance",
+    "@settingsAppearanceSection": {
+        "description": "Settings section title for appearance"
+    },
+    "settingsTheme": "Theme",
+    "@settingsTheme": {
+        "description": "Settings option for theme"
+    },
+    "settingsThemeDark": "Dark",
+    "@settingsThemeDark": {
+        "description": "Dark theme option"
+    },
+    "settingsAboutSection": "About",
+    "@settingsAboutSection": {
+        "description": "Settings section title for about"
+    },
+    "settingsVersion": "Version",
+    "@settingsVersion": {
+        "description": "Settings option for version"
+    },
+    "comingSoon": "Coming soon",
+    "@comingSoon": {
+        "description": "Label for features that are not yet implemented"
     }
 }

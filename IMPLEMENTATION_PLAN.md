@@ -777,6 +777,38 @@ lib/
 
 ---
 
+## Phase 1 Review: Future Improvements
+
+**Code Review Date:** 2025-12-03
+**Reviewer:** flutter-frontend-engineer agent
+**Grade:** A- (92/100)
+
+### Completed Improvements
+- [x] Add tooltips to bottom nav items for accessibility
+- [x] Use `package_info_plus` for dynamic version in Settings
+- [x] Add "Coming soon" visual state to disabled Settings tiles
+
+### Future Improvements (Low Priority)
+
+These are minor enhancements to implement in later phases:
+
+| Item | Phase | Description | Effort |
+|------|-------|-------------|--------|
+| **Subtle nav transitions** | Phase 3+ | Add 50-100ms crossfade between tabs for polish | 30 min |
+| **Focus management** | Phase 8 | Move focus to AppBar title on tab change for screen readers | 30 min |
+| **Semantic announcements** | Phase 8 | Use `Semantics(liveRegion: true)` for empty states | 1 hr |
+| **Deep link support** | Phase 4+ | Add `redirect` handlers for notifications → specific screens | 1-2 hrs |
+| **Error boundary widget** | Phase 3+ | Global error handling for unexpected navigation failures | 1 hr |
+| **Reduced motion support** | Phase 8 | Respect `MediaQuery.disableAnimations` when adding animations | 30 min |
+| **Theme switching** | Phase 4+ | Implement actual light/dark mode toggle with Riverpod state | 1-2 hrs |
+
+### Architecture Notes
+- Global navigator keys in `app_router.dart` are acceptable for single-instance app
+- Consider wrapping in a provider/service for better testability in future
+- ShellRoute pattern is correct for persistent bottom navigation
+
+---
+
 ## Notes & Future Enhancements
 
 **Possible Future Features:**
