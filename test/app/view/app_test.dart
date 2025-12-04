@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:one_chore/app/app.dart';
+import 'package:one_chore/daily_chore/view/daily_chore_screen.dart';
 
 void main() {
   group('App', () {
@@ -17,7 +18,7 @@ void main() {
       await tester.pumpWidget(App());
       await tester.pumpAndSettle();
 
-      expect(find.text("Today's Chore"), findsOneWidget);
+      expect(find.byType(DailyChoreScreen), findsOneWidget);
     });
 
     testWidgets('has all five navigation items', (tester) async {
